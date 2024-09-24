@@ -1,0 +1,4 @@
+baseURL = 'https://haldihugo.me/'
+languageCode = 'en-us'
+title = 'TetanOS'
+theme = 'hugo-book'
