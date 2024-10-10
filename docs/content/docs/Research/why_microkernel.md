@@ -13,13 +13,13 @@ The [microkernel architecture](https://en.wikipedia.org/wiki/Microkernel) is a s
 4. **Security**: The microkernel architecture is more secure than traditional monolithic operating systems because it limits the amount of code that runs in kernel mode. This reduces the attack surface of the operating system, making it harder for attackers to exploit vulnerabilities.
 5. **Scalability**: The microkernel architecture is more scalable than traditional monolithic operating systems because it allows the operating system to be distributed across multiple processors or machines. This makes it easier to take advantage of modern hardware, such as multi-core processors and cloud computing resources.
 
-# How does the Microkernel Architecture work?
+## How does the Microkernel Architecture work?
 
 The microkernel architecture is based on the idea of dividing the operating system into two main components: the microkernel and the user-space servers. The microkernel is a small, minimalistic component that provides basic operating system services, such as process management, memory management, and [inter-process communication](https://en.wikipedia.org/wiki/Inter-process_communication) (IPC). The user-space servers are larger, more complex components that provide higher-level operating system services, such as file systems, device drivers, and network protocols.
 
 The microkernel and user-space servers communicate with each other using well-defined interfaces, such as [remote procedure calls](https://en.wikipedia.org/wiki/Remote_procedure_call) (RPC) or [message passing](https://en.wikipedia.org/wiki/Message_passing). This allows the components of the operating system to be developed, tested, and maintained independently, and makes it easier to add new features, fix bugs, and optimize performance.
 
-# Examples of Microkernel-based Operating Systems
+## Examples of Microkernel-based Operating Systems
 
 There are several examples of microkernel-based operating systems, including:
 
@@ -27,7 +27,7 @@ There are several examples of microkernel-based operating systems, including:
 - [**Minix**](https://www.minix3.org/)(*discontinued*): A microkernel-based operating system that is designed for teaching purposes. It was written by [Andrew S. Tanenbaum](https://en.wikipedia.org/wiki/Andrew_S._Tanenbaum) as an alternative to the monolithic [*Linux*](https://www.linux.org/) kernel (see [Tanenbaum-Torvalds debate](https://en.wikipedia.org/wiki/Tanenbaum%E2%80%93Torvalds_debate)).
 - [**QNX**](https://www.qnx.com/): A real-time operating system that is used in embedded systems and other safety-critical applications.
 
-# Why develop a new Microkernel-based Operating System?
+## Why develop a new Microkernel-based Operating System?
 
 There are several reasons why we would want to develop a new microkernel-based operating system:
 
