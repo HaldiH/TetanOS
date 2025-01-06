@@ -1,12 +1,24 @@
 TARGET := x86_64-unknown-none
-arch := x86_64
-config := debug
-out_dir := target/$(TARGET)/$(config)
-kernel := $(out_dir)/tetanos
-iso := $(out_dir)/tetanos.iso
+ARCH := x86_64
+PROFILE := dev
 
-linker_script := src/arch/$(arch)/linker.ld
-grub_cfg := src/arch/$(arch)/grub.cfg
+ifeq ($(PROFILE), dev)
+	target_dir := target/$(TARGET)/debug
+else ifeq ($(PROFILE), test)
+	target_dir := target/$(TARGET)/debug
+else ifeq ($(PROFILE), release)
+	target_dir := target/$(TARGET)/release
+else ifeq ($(PROFILE), bench)
+	target_dir := target/$(TARGET)/release
+else
+	target_dir := target/$(TARGET)/$(PROFILE)
+endif
+
+kernel := $(target_dir)/tetanos
+iso := $(target_dir)/tetanos.iso
+
+linker_script := src/arch/$(ARCH)/linker.ld
+grub_cfg := src/arch/$(ARCH)/grub.cfg
 
 .PHONY: all clean run iso kernel
 
@@ -16,7 +28,7 @@ clean:
 	cargo clean
 
 run: $(iso)
-	qemu-system-$(arch) -cdrom $(iso)
+	qemu-system-$(ARCH) -cdrom $(iso)
 
 iso: $(iso)
 
@@ -27,4 +39,6 @@ $(iso): $(kernel) $(grub_cfg)
 	grub-mkrescue -o $(iso) $(out_dir)/isofiles 2> /dev/null
 
 kernel:
-	cargo build --target $(TARGET)
+	cargo build --target $(TARGET) --profile $(PROFILE)
+
+$(kernel): kernel
