@@ -11,7 +11,7 @@ fn panic(_info: &PanicInfo) -> ! {
 }
 
 #[no_mangle]
-pub extern fn rust_main() {
+pub extern "C" fn rust_main() {
     println!("Welcome to {} !", "TetanOS");
     println!("Version pre{}.{}.{}", 0, 0, 1);
 

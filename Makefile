@@ -37,7 +37,7 @@ $(kernel): kernel $(rust_os) $(assembly_object_files) $(linker_script)
 	@ld -m elf_$(arch) -n --gc-sections -T $(linker_script) -o $(kernel) $(assembly_object_files) $(rust_os)
 
 kernel:
-	cargo build --target build_targets/$(target).json
+	cargo build
 
 # compile assembly files
 build/arch/$(arch)/%.o: src/arch/$(arch)/%.asm

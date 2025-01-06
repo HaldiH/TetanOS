@@ -1,10 +1,10 @@
 [package]
-name = "rsos"
+name = "tetanos"
 version = "0.1.0"
 edition = "2021"
 
-[lib]
-crate-type = ["staticlib"]
+[build-dependencies]
+nasm-rs = "0.3.0"
 
 [dependencies]
 volatile = "0.2.6"
