@@ -33,10 +33,10 @@ run: $(iso)
 iso: $(iso)
 
 $(iso): $(kernel) $(grub_cfg)
-	@mkdir -p $(out_dir)/isofiles/boot/grub
-	cp $(kernel) $(out_dir)/isofiles/boot/kernel.bin
-	cp $(grub_cfg) $(out_dir)/isofiles/boot/grub
-	grub-mkrescue -o $(iso) $(out_dir)/isofiles 2> /dev/null
+	@mkdir -p $(target_dir)/isofiles/boot/grub
+	cp $(kernel) $(target_dir)/isofiles/boot/kernel.bin
+	cp $(grub_cfg) $(target_dir)/isofiles/boot/grub
+	grub-mkrescue -o $(iso) $(target_dir)/isofiles 2> /dev/null
 
 kernel:
 	cargo build --target $(TARGET) --profile $(PROFILE)
